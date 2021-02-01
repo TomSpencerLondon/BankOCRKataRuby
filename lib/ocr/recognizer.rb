@@ -48,7 +48,7 @@ module OCR
     end
 
     def self.reverse_lookup(to_digit)
-      to_digit.inject({}) { |h, (k,v)| h.merge(v => by_width(k)) }
+      to_digit.inject({}) { |h, (k, v)| h.merge(v => by_width(k)) }
     end
 
     FROM_DIGIT = reverse_lookup(TO_DIGIT)
@@ -85,7 +85,7 @@ module OCR
       TO_DIGIT[scanned_char] || "?"
     end
 
-    def guess(scanned_char, confidence=10)
+    def guess(scanned_char, confidence = 10)
       guess_all(scanned_char).select { |guess|
         guess.confidence > 0 &&
           guess.confidence <= confidence
