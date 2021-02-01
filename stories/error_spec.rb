@@ -10,8 +10,8 @@ describe "Error handling" do
   Given(:output) { contents_of(output_file_name) }
   When(:result) { system "ruby -Ilib bin/ocr <#{input_file_name} >#{output_file_name}" }
 
-  Then { result.should be_false }
-  And  { output.should =~ /error detected/i }
-  And  { output.should =~ /line 9/i }
-  And  { output.should =~ /this is a bad input/i }
+  Then { expect(result).to be false }
+  And  { expect(output).to match /error detected/i }
+  And  { expect(output).to match /line 9/i }
+  And  { expect(output).to match /this is a bad input/i }
 end
