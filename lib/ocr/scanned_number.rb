@@ -127,4 +127,3 @@ module OCR
   end
 
 end
-
